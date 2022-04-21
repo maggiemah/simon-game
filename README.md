@@ -39,10 +39,10 @@ The following **additional** features are implemented:
 ## Video Walkthrough (GIF)
 
 If you recorded multiple GIFs for all the implemented features, you can add them here:
-![Starting and playing](https://imgur.com/J0hbVfL)
-![Losing the game](https://imgur.com/VSnyYqB)
-![Winning the game](https://imgur.com/rhcdK2k)
-![New sequence each round (speed reset)](https://imgur.com/7I8aMRh)
+![Starting and playing](https://i.imgur.com/J0hbVfL.gif)
+![Losing the game](https://i.imgur.com/VSnyYqB.gif)
+![Winning the game](https://i.imgur.com/rhcdK2k.gif)
+![New sequence each round (speed reset)](https://i.imgur.com/7I8aMRh.gif)
 
 ## Reflection Questions
 1. If you used any outside resources to help complete your submission (websites, books, people, etc) list them here.
