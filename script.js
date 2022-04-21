@@ -3,11 +3,12 @@ let clueHoldTime = 1000; //how long to hold each clue's light/sound
 const cluePauseTime = 333; //how long to pause in between clues
 const nextClueWaitTime = 1000; //how long to wait before starting playback of the clue sequence
 let mistakes;
+let scoreDisplay = document.getElementById("score");
 let mistakeDisplay = document.getElementById("strikes");
 
 //Global Variables
 var pattern = [2, 2, 4, 3, 2, 1, 2, 4];
-var progress = 0;
+var progress = 0; 
 var gamePlaying = false;
 var tonePlaying = false;
 var volume = 0.5;  //must be between 0.0 and 1.0
@@ -21,6 +22,7 @@ function startGame() {
   document.getElementById("stopBtn").classList.remove("hidden");
   pattern = getRandomPattern(10);
   mistakes = 0;
+  scoreDisplay.textContent = "Score: 0";
   mistakeDisplay.textContent = "Mistakes: 0/3";
   playClueSequence();
 }
@@ -43,7 +45,7 @@ const freqMap = {
   7: 493.88,
   8: 523.25
 }
-function playTone(btn,len){
+function playTone(btn,len){ 
   o.frequency.value = freqMap[btn]
   g.gain.setTargetAtTime(volume,context.currentTime + 0.05,0.025)
   context.resume()
@@ -87,7 +89,7 @@ function playClueSequence(){
   for(let i=0;i<=progress;i++){ // for each clue that is revealed so far
     console.log("play single clue: " + pattern[i] + " in " + delay + "ms")
     setTimeout(playSingleClue,delay,pattern[i]) // set a timeout to play that clue
-    delay += clueHoldTime
+    delay += clueHoldTime 
     delay += cluePauseTime;
     clueHoldTime *= 0.95;
   }
@@ -107,22 +109,24 @@ function guess(btn){
   if(!gamePlaying){
     return;
   }
-
-  if(btn == pattern[guessCounter]) {
+  
+  if(btn == pattern[guessCounter]) { 
     //guess is correct
-    if(guessCounter == progress) {
+    if(guessCounter == progress) { 
       //turn is over
       if(progress == pattern.length-1) {
         //last turn
+        scoreDisplay.textContent = scoreDisplay.textContent.replace(progress, progress+1);
         winGame();
       }
       else {
         //not last turn
         progress++;
+        scoreDisplay.textContent = scoreDisplay.textContent.replace(progress-1, progress);
         playClueSequence();
       }
     }
-    else {
+    else { 
       //turn is not over
       guessCounter++;
     }
@@ -130,7 +134,7 @@ function guess(btn){
   else{
     //guess is not correct
     mistakes++;
-    mistakeDisplay.textContent = mistakeDisplay.textContent.replace(String(mistakes-1), mistakes);
+    mistakeDisplay.textContent = mistakeDisplay.textContent.replace(mistakes-1, mistakes);
     if(mistakes > 2) {
       mistakeDisplay.textContent = "Mistakes: 3/3";
       loseGame();
@@ -140,7 +144,7 @@ function guess(btn){
 
 function getRandomPattern(len) {
   let pattern = [];
-  for(let i = 0; i < len; i++)
+  for(let i = 0; i < len; i++) 
     pattern[i] = Math.floor(Math.random() * 8) + 1;
   return pattern;
 }
@@ -148,7 +152,7 @@ function getRandomPattern(len) {
 
 // Page Initialization
 // Init Sound Synthesizer
-var AudioContext = window.AudioContext || window.webkitAudioContext
+var AudioContext = window.AudioContext || window.webkitAudioContext 
 var context = new AudioContext()
 var o = context.createOscillator()
 var g = context.createGain()

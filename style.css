@@ -15,12 +15,13 @@ body {
   margin: 2em;
   font-family: helvetica, arial, sans-serif;
   background-color: slategrey;
-  color: white;
+  color: white; 
 }
 
 h1 {
-  font-family: verdana, arial, sans-serif;
+  font-family: verdana, arial, sans-serif; 
 }
+
 
 button {
   padding: 10px;
