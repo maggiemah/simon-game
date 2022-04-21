@@ -66,7 +66,7 @@ If I had a few more hours to work on this project, some features I would impleme
 
 ## Interview Recording URL Link
 
-[My 5-minute Interview Recording](your-link-here)
+[My 5-minute Interview Recording](https://ucdavis.zoom.us/rec/share/J4liFwtuelJljHTZNqwgRDAvC5tJiUGy6bfopqw3ACqvor9Pkd_0-YqweL0DsGB1.YokH-O1GkLJRz_JB?startTime=1650576940000)
 
 
 ## License
